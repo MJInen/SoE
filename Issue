@@ -1,0 +1,16 @@
+2016-04-30T09:15:23Z|00001|reconnect|WARN|unix:/var/run/openvswitch/db.sock: connection attempt failed (Permission denied)
+ovs-vsctl: unix:/var/run/openvswitch/db.sock: database connection failed (Permission denied)
+ovs-docker: Failed to find any attached port for CONTAINER=mim and INTERFACE=eth1
+
+
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main(int argc, char *argv[])
+{
+    printf("uid=%d\n", getuid());
+    execl("/bin/cat", "cat", "/etc/shadow", (const char *)NULL);
+    err(1, "Exec failed");
+}
+

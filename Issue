@@ -1,6 +1,26 @@
-2016-04-30T09:15:23Z|00001|reconnect|WARN|unix:/var/run/openvswitch/db.sock: connection attempt failed (Permission denied)
+# telnet 173.16.1.100 5222
+# sudo ovs-vsctl show
+
+# ovs-docker del-port ovs-br1 eth1 mim
+# ovs-docker add-port ovs-br1 eth1 mim --ipaddress=173.16.1.100/24
+
+
+# vagrant provision --provision-with reconfigure_mim_network
+
+
+vagrant@soe2016:~$ ovs-docker del-port ovs-br1 eth1 mim
+2016-04-30T10:02:41Z|00001|reconnect|WARN|unix:/var/run/openvswitch/db.sock: connection attempt failed (Permission denied)
 ovs-vsctl: unix:/var/run/openvswitch/db.sock: database connection failed (Permission denied)
 ovs-docker: Failed to find any attached port for CONTAINER=mim and INTERFACE=eth1
+vagrant@soe2016:~$
+
+
+vagrant@soe2016:~$ ovs-docker add-port ovs-br1 eth1 mim --ipaddress=173.16.1.100/24
+2016-04-30T10:03:18Z|00001|reconnect|WARN|unix:/var/run/openvswitch/db.sock: connection attempt failed (Permission denied)
+ovs-vsctl: unix:/var/run/openvswitch/db.sock: database connection failed (Permission denied)
+2016-04-30T10:03:18Z|00002|reconnect|WARN|unix:/var/run/openvswitch/db.sock: connection attempt failed (Permission denied)
+ovs-vsctl: unix:/var/run/openvswitch/db.sock: database connection failed (Permission denied)
+ovs-docker: Failed to create bridge ovs-br1
 
 
 
